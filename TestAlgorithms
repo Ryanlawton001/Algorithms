@@ -1,0 +1,11 @@
+    @Test
+    public void MinusTest() {
+        ArrayGenerator generator = new CleverRandomListingGenerator(5);
+        CleverSearcher search = new CleverSearcher(generator.getArray(), -1);
+        try {
+            search.findElement();
+            fail("Expected indexing error");
+        } catch (IndexingError indexingError) {
+
+        }
+    }
