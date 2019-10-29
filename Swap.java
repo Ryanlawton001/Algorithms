@@ -1,4 +1,4 @@
-package swap;
+package Swap;
 
 import java.util.Arrays;
 
@@ -10,21 +10,15 @@ public class Swap {
         swap(names, 1,3);
     }
     //Creating a generic swap method
-    public static <E> void swap(E[] Array, int index, int indexTwo){
+    public static <E> E[] swap(E[] Array, int index, int indexTwo){
         //Code to swap the to string at the correct index
         E e = Array[index];
         Array[index] = Array[indexTwo];
         Array[indexTwo] = e;
         //Outputting the new Array after swap
-        System.out.println(Arrays.toString(Array));
-
-
+        return Array;
 
     }
 }
-
-
-
-
 
 
