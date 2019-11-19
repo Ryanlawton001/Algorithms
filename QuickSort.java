@@ -3,12 +3,13 @@ package arraySorter;
 public class QuickSort<T extends Comparable<? super T>> implements ArraySort<T> {
 
 
-    public T[] sort(T[] array, int low, int high) {
+    public T[] Quicksort(T[] array, int low, int high) {
 
         if (low < high) {
-            int index = partition(array, low, high);
-            sort(array, low, high);
-            sort(array, index + 1, high);
+            int pi = partition(array, low, high);
+            Quicksort(array, low, pi-1);
+            Quicksort(array, pi + 1, high);
+
         }
 
         return array;
@@ -29,5 +30,11 @@ public class QuickSort<T extends Comparable<? super T>> implements ArraySort<T> 
         array[i+1] = array[high];
         array[high] = temp;
         return i+1;
+    }
+    public T[] sort(T[] array){
+
+        return Quicksort(array, 0, array.length-1);
+
+
     }
     }
