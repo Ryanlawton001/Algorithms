@@ -30,17 +30,20 @@ public class Peru extends Railway {
 		while (!clock.timeOut()) {
 			choochoo();
 			getBasket().putStone();
-
+			getSharedBasket().putStone();
 			while (nextRailway.getBasket().hasStone()) {
-				if(getBasket().hasStone() == nextRailway.getBasket().hasStone()){
+				if(getSharedBasket().hasStone()){
+					siesta();
 					getBasket().takeStone();
+					while (getSharedBasket().hasStone() != getBasket().hasStone()){
+						siesta();
+						getBasket().putStone();
 
-					while (!getBasket().hasStone());
-					getBasket().putStone();
+					}
 				}
 			}
 			crossPass();
-			nextRailway.getBasket().putStone();
+			getSharedBasket().takeStone();
 			getBasket().takeStone();
 		}
 	}
